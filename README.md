@@ -1,6 +1,7 @@
 ## Prévia das telas
 ![BlogFestaLab-panel](https://user-images.githubusercontent.com/13179312/82166549-2c590c00-988f-11ea-872f-439cb840a058.png)
 
+![BlogFestaLab-New](https://user-images.githubusercontent.com/13179312/82166886-54953a80-9890-11ea-98da-8ce121967c20.png)
 
 ### Informações
 - Foi usado o framework Bulma
