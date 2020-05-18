@@ -1,0 +1,57 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <article class="media">
+        <figure class="media-left">
+          <p class="image blogIcon2">
+            <%= image_tag "blog.png" %>
+          </p>
+        </figure>
+        <div class="media-content">
+          <div class="content">
+            <h1 class="title">Painel de Controle</h1>
+            <h2 class="subtitle">Gerencie as publicações</h2>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <button class="btnNewPost button is-primary is-outlined"><%= link_to '<i class="fas fa-feather-alt"></i> Escrever novo post'.html_safe, new_article_path, {:style=>"color:#fff;"} %></button>
+  <div class="columns">
+    <div class="column">
+      <table class="table table is-fullwidth is-hoverable is-responsive">
+        <thead>
+          <tr class="is-selected">
+            <th>Título</th>
+            <th>Texto</th>
+            <th>Visualizar</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @articles.each do |article| %>
+          <tr>
+            <td><%= article.title %></td>
+            <td class="tdArticle"><%= article.text %></td>
+            <td><button class="button is-primary is-light"><%= link_to '<i class="far fa-eye"></i>'.html_safe, article_path(article), {:style=>"color:#000;"} %></button></td>
+            <td><button class="button is-warning is-light"><%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_article_path(article), {:style=>"color:#000;"} %></button></td>
+            <td><button class="button is-danger"><%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, article_path(article),
+                                                                       method: :delete,
+                                                                       data: { confirm: 'Você tem certeza?'},
+                                                                       :style => 'color: #fff;' %></button></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<%= form_with scope: :article, url: articles_path, local: true do |form| %>
+<% end %>

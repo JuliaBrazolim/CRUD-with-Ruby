@@ -1,0 +1,24 @@
+<%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
+
+<div class="container">
+  <div class="column is-three-quarters">
+    <div class="field">
+      <label class="label">Seu nome</label>
+      <div class="control">
+        <%= form.text_field :commenter, class: "input", :placeholder => 'Escreva seu nome...' %>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Mensagem</label>
+      <div class="control">
+        <%= form.text_area :body, class: "textarea", :placeholder => "Escreva sua mensagem..." %>
+      </div>
+    </div>
+    <div class="field">
+      <div class="control">
+        <%= form.submit 'Enviar', :class => 'button is-black' %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,38 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+@import 'bulma/bulma';
+html {
+  background-color:#141d26;
+}
+body {
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  overflow-x: none;
+}
+.blogIcon{
+  margin-top:30px;
+  padding-top:40px;
+}
+.blogIcon2{
+  width:120px;
+}
+.titleForm{
+  color:$primary;
+}
+.titleEdit{
+  color:#5e10ec !important;
+}
+.is-selected{
+  background-color:#5e10ec !important;
+}
+.btnNewPost{
+  margin-bottom:30px;
+}
+.blogIcon-view{
+  margin-top:60px;
+}
+.tdArticle{
+  width:600px;
+}

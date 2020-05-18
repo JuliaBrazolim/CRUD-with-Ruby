@@ -1,0 +1,56 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+<nav class="level">
+  <p class="level-item has-text-centered">
+    <%= link_to '<button class="button">Voltar ao painel</button>'.html_safe, articles_path %>
+  </p>
+  <figure class="image blogIcon-view is-128x128">
+    <%= image_tag "blog.png" %>
+  </figure>
+  <p class="level-item has-text-centered">
+    <%= link_to '<button class="button is-light">Editar</button>'.html_safe, edit_article_path(@article) %>
+  </p>
+</nav>
+
+<section>
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <!-- Artigo publicado -->
+        <div class="box">
+          <article class="article">
+            <h1 class="title is-3"><%= @article.title %></h1>
+            <div class="media-content">
+              <div class="content">
+                <p><%= @article.text %></p>
+              </div>
+            </div>
+          </article>
+        </div>
+        <!-- Caixa de comentários -->
+        <h4 class="title is-5 has-text-primary">Comentários</h4>
+        <div class="box">
+          <article class="media">
+            <div class="media-content">
+              <div class="content">
+                <p><%= render @article.comments %></p>
+              </div>
+            </div>
+          </article>
+        </div>
+        <!-- Form para comentar -->
+        <h4 class="title is-5 has-text-primary">Faça um comentário</h4>
+        <div class="box">
+          <article class="media">
+            <div class="media-content">
+              <div class="content">
+                <%= render 'comments/form' %>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
