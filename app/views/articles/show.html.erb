@@ -1,5 +1,8 @@
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
 
 <nav class="level">
   <p class="level-item has-text-centered">
@@ -19,15 +22,23 @@
       <div class="column is-8">
         <!-- Artigo publicado -->
         <div class="box">
-          <article class="article">
-            <h1 class="title is-3"><%= @article.title %></h1>
-            <div class="media-content">
-              <div class="content">
-                <p><%= @article.text %></p>
+            <article>
+              <div class="showHide">
+              <button class="button is-primary is-small is-light is-pulled-right" id="showDiv" title="Visualizar post"><i class="far fa-eye"></i></button>
+              <button class="button is-danger is-small is-light is-pulled-right" id="hideDiv" title="Ocultar post"><i class="far fa-eye-slash"></i></button>
               </div>
-            </div>
+              <div id="panel">
+              <h1 class="title is-3"><%= @article.title %></h1>
+              <div class="media-content">
+                <div class="content">
+                  <p><%= @article.text %></p>
+                </div>
+              </div>
+              </div>
           </article>
         </div>
+        <!-- View/Hidden post box -->
+
         <!-- Caixa de comentários -->
         <h4 class="title is-5 has-text-primary">Comentários</h4>
         <div class="box">
@@ -54,3 +65,14 @@
     </div>
   </div>
 </section>
+
+<script>
+  $(document).ready(function(){
+    $("#hideDiv").click(function(){
+      $("#panel").hide(300);
+    });
+    $("#showDiv").click(function(){
+      $("#panel").show(300);
+    })
+  });
+</script>
